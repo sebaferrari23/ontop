@@ -33,20 +33,22 @@ export const NavItem = styled.a`
   align-items: center;
   font-size: 1.125rem;
   font-weight: 700;
-  color: var(--grey);
+  color: ${props => (props.isActive ? 'var(--primary)' : 'var(--grey)')};
   text-decoration: none;
-  border-bottom: 6px solid transparent;
+  border-bottom-style: solid;
+  border-bottom-width: 6px;
+  border-bottom-color: ${props => (props.isActive ? 'var(--primary)' : 'transparent')};
   transition: all .2s ease-in-out;
   img {
     margin-right: 10px;
-    filter: grayscale(100%);
+    filter: ${props => (props.isActive ? 'grayscale(0)' : 'grayscale(100%)')};
     transition: all .2s ease-in-out;
   }
   &:after {
     display: ${props => (props.hasSubmenu ? 'block' : 'none')};
     content: '';
-    border-bottom: 2px solid var(--grey);
-    border-left: 2px solid var(--grey);
+    border-bottom: 2px solid ${props => (props.isActive ? 'var(--primary)' : 'var(--grey)')};
+    border-left: 2px solid ${props => (props.isActive ? 'var(--primary)' : 'var(--grey)')};
     height: 6px;
     width: 6px;
     transform: rotate(-45deg);

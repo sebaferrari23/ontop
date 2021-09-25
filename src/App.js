@@ -1,12 +1,21 @@
 import StoreProvider from './store'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import { GlobalStyle } from './styled';
 import Navbar from './components/Navbar';
+import Contracts from './pages/Contracts'
 
 function App() {
   return (
     <StoreProvider>
       <GlobalStyle />
-      <Navbar />
+      <BrowserRouter>
+        <Navbar />
+        <Switch>
+          <Route path="/">
+            <Contracts />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </StoreProvider>
   );
 }

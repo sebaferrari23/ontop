@@ -1,4 +1,3 @@
-import React from 'react'
 import Logo from '../../assets/png/logo-ontop.png'
 import Avatar from '../../assets/png/user-avatar.png'
 import UserIcon from '../../assets/svg/user.svg'
@@ -15,7 +14,7 @@ const Navbar = () => {
       <Nav>
         <ul>
           <li>
-            <NavItem href="/" hasSubmenu>
+            <NavItem href="/" hasSubmenu isActive>
               <img src={UserIcon} alt="" />
               Contracts
             </NavItem>

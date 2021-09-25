@@ -80,6 +80,7 @@ export const GlobalStyle = createGlobalStyle`
     --grey: #898989;
     --grey-light: #BEBEBE;
     --main-font: Aileron, Arial, sans-serif;
+    --border-radius: 5px;
   }
 
   // Fonts
