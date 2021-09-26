@@ -3,27 +3,46 @@ import { breakpoint } from '../../utils'
 
 export const BoxTable = styled.div`
   background-color: var(--white);
-  padding: 30px 12px;
+  padding: 10px 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,.1);
   border-radius: var(--border-radius);
 `;
 
-export const TableContainer = styled.div`
+export const TableContainer = styled.table`
+  border-collapse: separate;
+  border-spacing: 0 20px;
+  margin-top: -20px;
   width: 100%;
-  display: table;
 `;
 
-export const TableRow = styled.div`
-  display: table-row;
+export const TableRow = styled.tr`
+  
 `;
 
-export const TableHeader = styled.div`
-  display: table-cell;
+export const TableHeader = styled.th`
   font-weight: 700;
-  vertical-align: middle;
+  text-align: left;
+  padding: 20px;
+  &:first-child,
+  &:last-child {
+    text-align: center;
+  }
 `;
 
-export const TableData = styled.div`
-  display: table-cell;
+export const TableData = styled.td`
   vertical-align: middle;
+  padding: 25px 20px;
+  font-size: 14px;
+  background-color: var(--bg-primary);
+  &:last-child {
+    text-align: center;
+  }
+`;
+
+export const TableUser = styled.div`
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 15px;
+  }
 `;

@@ -1,7 +1,27 @@
-import { BoxTable, TableContainer, TableRow, TableHeader, TableData } from './styled'
+import Statusbar from '../Statusbar';
+import { 
+  BoxTable, 
+  TableContainer, 
+  TableRow, 
+  TableHeader, 
+  TableData, 
+  TableUser 
+} from './styled'
+import OptionsIcon from '../../assets/svg/options.svg'
 
 const Table = ({ items }) => {
+
   console.log(items);
+
+  // Format price
+  let formatPrice = Intl.NumberFormat('en-US', {
+    currency: 'USD',
+    style: 'currency',
+    minimumFractionDigits: 0,
+  });
+
+  const optionsDate = { year: 'numeric', month: 'short', day: 'numeric' };
+
   return (
     <BoxTable>
       { items.length > 0 ?
@@ -17,14 +37,21 @@ const Table = ({ items }) => {
           { items.map((item, i) => 
             <TableRow key={i}>
               <TableData>
-                {item.name}
+                <TableUser>
+                  <img src={item.avatar} alt={item.name} />
+                  {item.name}
+                </TableUser>
               </TableData>
               <TableData>{item.type}</TableData>
-              <TableData>{/*item.start_date*/}</TableData>
-              <TableData>{item.amount}</TableData>
-              <TableData>{item.status}</TableData>
+              <TableData>{item.start_date.toLocaleDateString("en-US", optionsDate)}</TableData>
+              <TableData>{formatPrice.format(item.amount)} USD</TableData>
               <TableData>
-
+                <Statusbar status={item.status} />
+              </TableData>
+              <TableData>
+                <button type="button">
+                  <img src={OptionsIcon} alt="Options" />
+                </button>
               </TableData>
             </TableRow>
           )}
