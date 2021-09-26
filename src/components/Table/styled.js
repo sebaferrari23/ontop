@@ -15,10 +15,6 @@ export const TableContainer = styled.table`
   width: 100%;
 `;
 
-export const TableRow = styled.tr`
-  
-`;
-
 export const TableHeader = styled.th`
   font-weight: 700;
   text-align: left;
@@ -45,4 +41,9 @@ export const TableUser = styled.div`
   img {
     margin-right: 15px;
   }
+`;
+
+export const MenuContainer = styled.div`
+  position: relative;
+  display: inline-block;
 `;

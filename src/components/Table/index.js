@@ -1,17 +1,28 @@
-import Statusbar from '../Statusbar';
+import { useState } from 'react'
+import Statusbar from '../Statusbar'
+import BtnCircle from '../BtnCircle'
+import Menu from '../Menu'
 import { 
   BoxTable, 
   TableContainer, 
-  TableRow, 
   TableHeader, 
   TableData, 
-  TableUser 
+  TableUser,
+  MenuContainer
 } from './styled'
 import OptionsIcon from '../../assets/svg/options.svg'
+import EditIcon from '../../assets/svg/edit-gray.svg'
+import SignIcon from '../../assets/svg/sign-gray.svg'
+import DocIcon from '../../assets/svg/doc-gray.svg'
+import DeleteIcon from '../../assets/svg/delete.svg'
 
 const Table = ({ items }) => {
 
-  console.log(items);
+  const [openMenu, setOpenMenu] = useState(false)
+  
+  const toggleMenu = () => {
+    setOpenMenu(!openMenu);
+  }
 
   // Format price
   let formatPrice = Intl.NumberFormat('en-US', {
@@ -26,16 +37,19 @@ const Table = ({ items }) => {
     <BoxTable>
       { items.length > 0 ?
         <TableContainer>
-          <TableRow>
-            <TableHeader>Contractor name</TableHeader>
-            <TableHeader>Type</TableHeader>
-            <TableHeader>Start date</TableHeader>
-            <TableHeader>Amount</TableHeader>
-            <TableHeader>Status</TableHeader>
-            <TableHeader>Actions</TableHeader>
-          </TableRow>
+          <thead>
+            <tr>
+              <TableHeader>Contractor name</TableHeader>
+              <TableHeader>Type</TableHeader>
+              <TableHeader>Start date</TableHeader>
+              <TableHeader>Amount</TableHeader>
+              <TableHeader>Status</TableHeader>
+              <TableHeader>Actions</TableHeader>
+            </tr>
+          </thead>
+          <tbody>
           { items.map((item, i) => 
-            <TableRow key={i}>
+            <tr key={i}>
               <TableData>
                 <TableUser>
                   <img src={item.avatar} alt={item.name} />
@@ -49,12 +63,33 @@ const Table = ({ items }) => {
                 <Statusbar status={item.status} />
               </TableData>
               <TableData>
-                <button type="button">
-                  <img src={OptionsIcon} alt="Options" />
-                </button>
+                <MenuContainer>
+                  <BtnCircle onClick={() => toggleMenu()}>
+                    <img src={OptionsIcon} alt="Options" />
+                  </BtnCircle>
+                  <Menu active={openMenu}>
+                    <a href="/">
+                      <img src={EditIcon} alt=""/>
+                      Edit
+                    </a>
+                    <a href="/">
+                      <img src={SignIcon} alt=""/>
+                      Sign
+                    </a>
+                    <a href="/">
+                      <img src={DocIcon} alt="" />
+                      View summary
+                    </a>
+                    <a href="/">
+                      <img src={DeleteIcon} alt=""/>
+                      Delete
+                    </a>
+                  </Menu>
+                </MenuContainer>
               </TableData>
-            </TableRow>
+            </tr>
           )}
+          </tbody>
         </TableContainer>
       : 
         <p>You don't have any contracts</p>

@@ -11,6 +11,7 @@ export const Status = styled.span`
   padding: 0 20px 0 30px;
   font-size: 0.75rem;
   font-weight: 700;
+  min-width: 160px;
   height: 30px;
   border-radius: 15px;
   position: relative;
