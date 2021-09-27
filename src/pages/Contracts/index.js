@@ -7,10 +7,10 @@ import Filters from "../../components/Filters"
 const Contracts = () => {
 
   const data = useContext(Store);
-  const { contracts } = data;
+  const { contracts, userInfo } = data;
   
   return (
-    <Layout title="Contracts for Client">
+    <Layout title={`Contracts for ${userInfo.name}`}>
       <Filters />
       <Table items={contracts} />
     </Layout>

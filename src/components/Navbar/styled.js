@@ -71,13 +71,15 @@ export const NavItem = styled.a`
 export const UserNav = styled.button`
   display: flex;
   align-items: center;
+  margin-left: 40px;
   &:before {
     display: block;
     content: '';
+    position: relative;
+    left: -40px;
     width: 1px;
     height: 45px;
     background-color: var(--grey-light);
-    margin-right: 40px;
     opacity: .5;
   }
   &:after {
