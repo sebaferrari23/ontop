@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, createRef } from 'react'
 import Statusbar from '../Statusbar'
 import BtnCircle from '../BtnCircle'
 import Menu from '../Menu'
@@ -18,11 +18,10 @@ import DeleteIcon from '../../assets/svg/delete.svg'
 
 const Table = ({ items }) => {
 
-  const [openMenu, setOpenMenu] = useState(false)
-  
-  const toggleMenu = () => {
-    setOpenMenu(!openMenu);
-  }
+  // TO FIX
+  // const refArr = Array(items.length).fill(createRef());
+  // let menusRefs = useRef(refArr);
+  let menusRefs = useRef([createRef(), createRef(), createRef()]);
 
   // Format price
   let formatPrice = Intl.NumberFormat('en-US', {
@@ -64,10 +63,10 @@ const Table = ({ items }) => {
               </TableData>
               <TableData>
                 <MenuContainer>
-                  <BtnCircle onClick={() => toggleMenu()}>
+                  <BtnCircle onClick={() => menusRefs.current[i].current.toggle()}>
                     <img src={OptionsIcon} alt="Options" />
                   </BtnCircle>
-                  <Menu active={openMenu}>
+                  <Menu ref={menusRefs.current[i]}>
                     <a href="/">
                       <img src={EditIcon} alt=""/>
                       Edit
