@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import { breakpoint } from '../../utils'
 
 export const Header = styled.header`
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 900;
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -13,7 +17,7 @@ export const Header = styled.header`
     height: 80px;
   }
   @media only screen and ${breakpoint.device.md} {
-    padding: 040px;
+    padding: 0 40px;
     height: 100px;
   }
   @media only screen and ${breakpoint.device.lg} {
@@ -26,6 +30,10 @@ export const Logo = styled.h1`
     display: block;
     img {
       max-width: 100%;
+      max-height: 30px;
+      @media only screen and ${breakpoint.device.sm} {
+        max-height: none;
+      }
     }
   }
 `;
@@ -101,7 +109,10 @@ export const UserNav = styled.button`
     margin-left: 40px;
   }
   img {
-    max-width: 50px;
+    max-width: 30px;
+    @media only screen and ${breakpoint.device.sm} {
+      max-width: 50px;
+    }
     @media only screen and ${breakpoint.device.md} {
       max-width: 65px;
     }
@@ -137,8 +148,11 @@ export const BtnMenuMobile = styled.button`
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 50px;
+  width: 28px;
   height: 28px;
+  @media only screen and ${breakpoint.device.sm} {
+  width: 50px;
+  }
   @media only screen and ${breakpoint.device.md} {
     display: none;
   }

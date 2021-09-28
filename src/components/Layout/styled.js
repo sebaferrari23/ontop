@@ -2,16 +2,15 @@ import styled from 'styled-components';
 import { breakpoint } from '../../utils'
 
 export const Section = styled.section`
-  padding: 30px 0;
+  padding: 90px 0 80px 0;
   @media only screen and ${breakpoint.device.sm} {
-    padding: 60px 0;
+    padding: 160px 0 60px 0;
   }
 `;
 
 export const Container = styled.div`
   margin: 0 auto;
   padding: 0 1rem;
-  max-width: 380px;
   @media only screen and ${breakpoint.device.sm} {
     max-width: 100%;
   }
