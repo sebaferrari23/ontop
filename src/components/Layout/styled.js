@@ -13,7 +13,7 @@ export const Container = styled.div`
   padding: 0 1rem;
   max-width: 380px;
   @media only screen and ${breakpoint.device.sm} {
-    max-width: 768px;
+    max-width: 100%;
   }
   @media only screen and ${breakpoint.device.md} {
     max-width: 1024px;

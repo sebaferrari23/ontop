@@ -1,12 +1,19 @@
 import { useContext } from 'react'
 import { Store } from '../../store'
-import Logo from '../../assets/png/logo-ontop.png'
+import LogoOntop from '../../assets/png/logo-ontop.png'
 import UserIcon from '../../assets/svg/user.svg'
 import DocIcon from '../../assets/svg/doc.svg'
 import CardIcon from '../../assets/svg/card.svg'
 import CalendarIcon from '../../assets/svg/calendar.svg'
 
-import { Header, Nav, NavItem, UserNav } from './styled';
+import { 
+  Header, 
+  Logo, 
+  Nav, 
+  NavItem, 
+  UserNav, 
+  BtnMenuMobile 
+} from './styled';
 
 const Navbar = () => {
 
@@ -15,7 +22,8 @@ const Navbar = () => {
 
   return (
     <Header>
-      <h1><a href="/"><img src={Logo} alt="Ontop" /></a></h1>
+      <BtnMenuMobile><span></span></BtnMenuMobile>
+      <Logo><a href="/"><img src={LogoOntop} alt="Ontop" /></a></Logo>
       <Nav>
         <ul>
           <li>
