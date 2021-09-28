@@ -55,13 +55,13 @@ const Table = ({ items }) => {
                   {item.name}
                 </TableUser>
               </TableData>
-              <TableData>{item.type}</TableData>
-              <TableData>{item.start_date.toLocaleDateString("en-US", optionsDate)}</TableData>
-              <TableData>{formatPrice.format(item.amount)} USD</TableData>
-              <TableData>
+              <TableData data-th="Type">{item.type}</TableData>
+              <TableData data-th="Start date">{item.start_date.toLocaleDateString("en-US", optionsDate)}</TableData>
+              <TableData data-th="Amount">{formatPrice.format(item.amount)} USD</TableData>
+              <TableData data-th="Status">
                 <Statusbar status={item.status} />
               </TableData>
-              <TableData>
+              <TableData data-th="Actions">
                 <MenuContainer>
                   <BtnCircle onClick={() => menusRefs.current[i].current.toggle()}>
                     <img src={OptionsIcon} alt="Options" />
