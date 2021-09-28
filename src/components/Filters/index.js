@@ -46,7 +46,7 @@ const Filters = () => {
         </FiltersBtns>
       </FiltersContainer>
       <FiltersMenu isOpen={filterMenu}>
-        <Input type="date" maxWidth={'266px'} />
+        <Input type="date" placeholder="Start date" maxWidth={'266px'} />
         {contractTypes.length > 0 &&
           <Select maxWidth={'206px'}>
             <option value="" selected disabled>Contract type</option>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoint } from '../../utils'
 
 export const Status = styled.span`
   display: inline-flex;
@@ -11,10 +12,18 @@ export const Status = styled.span`
   padding: 0 20px 0 30px;
   font-size: 0.75rem;
   font-weight: 700;
-  min-width: 160px;
   height: 30px;
   border-radius: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   position: relative;
+  @media only screen and ${breakpoint.device.sm} {
+    width: 100%;
+  }
+  @media only screen and ${breakpoint.device.md} {
+    min-width: 160px;
+  }
   &:before {
     display: block;
     content: '';
